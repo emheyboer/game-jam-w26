@@ -38,4 +38,11 @@ class Sprite:
 
 def load_sprites():
     sprites = {}
+
+    map_sheet = SpriteSheet('assets/map tiles/tilemap.png')
+    for x in range(0, 18):
+        for y in range(0, 11):
+            sprite = Sprite(map_sheet, (16 * x, 16 * y), (16, 16))
+            sprites[f"map_{x:02d}_{y:02d}"] = sprite
+
     return sprites

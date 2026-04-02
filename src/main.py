@@ -2,7 +2,7 @@
 import pygame
 
 from sprites import load_sprites
-from screen import Screen
+from mapScreen import MapScreen
 
 def main():
     pygame.init()
@@ -16,7 +16,7 @@ def main():
     sprites = load_sprites()
 
     player = {}
-    current_screen = Screen(screen, width, height, sprites, player, 0)
+    current_screen = MapScreen(screen, width, height, sprites, player, 0)
 
     running = True
     while running:
