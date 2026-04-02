@@ -19,11 +19,16 @@ class MapScreen(Screen):
             for y in range(0, rows):
                 self.sprites['field_grassy'].draw(self.screen,
                                                 (x * size, y * size), (size, size))
-                if x >= 8:
+                
+                if x == 7:
+                    self.sprites['river_vertical_center'].draw(self.screen,
+                                                (x * size, y * size), (size, size))
+                elif x >= 8:
                     self.sprites['forest'].draw(self.screen,
                                                 (x * size, y * size), (size, size))
                     
         self.draw_smoky()
+        self.draw_selector()
 
     def draw_smoky(self):
         size = self.size
@@ -43,9 +48,18 @@ class MapScreen(Screen):
             horizontal = "center"
 
         sprite = self.sprites[f"smoky_{vertical}_{horizontal}"]
-        print(f"smoky_{vertical}_{horizontal}", sprite)
         
         sprite.draw(self.screen, (2 * size, 1 * size), (smoky_size, smoky_size))
+
+    def draw_selector(self):
+        size = self.size
+        (cursor_x, cursor_y) = pygame.mouse.get_pos()
+
+        grid_x = cursor_x // size
+        grid_y = cursor_y // size
+        
+        self.sprites['selector'].draw(self.screen,
+                                    (grid_x * size, grid_y * size), (size, size))
     
     def on_event(self, event):
         """
@@ -57,6 +71,10 @@ class MapScreen(Screen):
                 self.size <<= 1
             elif event.unicode == '<':
                 self.size >>= 1
-            print(self.size)
+
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            (c_x, c_y) = pygame.mouse.get_pos()
+            grid_pos = (c_x // self.size, c_y // self.size)
+            print(grid_pos)
 
         return self
