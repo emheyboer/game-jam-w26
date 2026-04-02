@@ -40,6 +40,11 @@
         "rows": [9, 9]
     },
     {
+        "sprite": "water_standalone",
+        "cols": [2, 2],
+        "rows": [11, 11]
+    },
+    {
         "sprite": "field",
         "cols": [30, 32],
         "rows": [15, 17]

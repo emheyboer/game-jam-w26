@@ -49,6 +49,10 @@ class MapScreen(Screen):
                                     (3.5 * size, 8.5 * size), (1.5 * size, 1.5 * size))
         self.sprites['7'].draw(self.screen,
                                     (4.5 * size, 8.5 * size), (1.5 * size, 1.5 * size))
+        self.sprites['0'].draw(self.screen,
+                                    (3.5 * size, 10.5 * size), (1.5 * size, 1.5 * size))
+        self.sprites['9'].draw(self.screen,
+                                    (4.5 * size, 10.5 * size), (1.5 * size, 1.5 * size))
 
     def draw_smoky(self):
         size = self.size

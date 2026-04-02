@@ -6,7 +6,9 @@
         [] Fire Spread
         [] Tile Destruction
         [] ...
-     
+    [] Resources
+        [] figure out what resources we're gonna have
+        [] keep track and integrate with other mechanics
     [] Game Buttons
     [] Purchasing Mechanic 
     [] Firefighter Things
@@ -17,7 +19,7 @@
     [] UI Stuffs
         [] finish mock ui
     [] Sprites
-        [] a good 1x1 water tile for the ui (probably just mashing kenny's together)
+        [x] a good 1x1 water tile for the ui (probably just mashing kenny's together)
         [] maybe tree variants(?)
         [] fire sprite that we can hopefully just stick on top of the trees & stuff
         [] ui things i forgot

@@ -47,5 +47,12 @@
 		"cols": 1,
 		"rows": 1,
 		"sprites": [["mountain"]]
+	},
+
+	"misc/water.png": {
+		"size": "16x16",
+		"cols": 1,
+		"rows": 1,
+		"sprites": [["water_standalone"]]
 	}
 }
