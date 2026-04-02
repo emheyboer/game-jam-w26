@@ -42,24 +42,24 @@ class MapScreen(Screen):
                     
         # don't hate me, i'll redraw these later so they're not so weird
         self.sprites['1'].draw(self.screen,
-                                    (3.5 * size, 6.5 * size), (1.5 * size, 1.5 * size))
+                                    (3.5 * size, 9.5 * size), (1.5 * size, 1.5 * size))
         self.sprites['0'].draw(self.screen,
-                                    (4.5 * size, 6.5 * size), (1.5 * size, 1.5 * size))
+                                    (4.5 * size, 9.5 * size), (1.5 * size, 1.5 * size))
         self.sprites['2'].draw(self.screen,
-                                    (3.5 * size, 8.5 * size), (1.5 * size, 1.5 * size))
+                                    (3.5 * size, 11.5 * size), (1.5 * size, 1.5 * size))
         self.sprites['7'].draw(self.screen,
-                                    (4.5 * size, 8.5 * size), (1.5 * size, 1.5 * size))
+                                    (4.5 * size, 11.5 * size), (1.5 * size, 1.5 * size))
         self.sprites['0'].draw(self.screen,
-                                    (3.5 * size, 10.5 * size), (1.5 * size, 1.5 * size))
+                                    (3.5 * size, 13.5 * size), (1.5 * size, 1.5 * size))
         self.sprites['9'].draw(self.screen,
-                                    (4.5 * size, 10.5 * size), (1.5 * size, 1.5 * size))
+                                    (4.5 * size, 13.5 * size), (1.5 * size, 1.5 * size))
 
     def draw_smoky(self):
         size = self.size
         smoky_size = 4 * self.size
         (cursor_x, cursor_y) = pygame.mouse.get_pos()
 
-        (smoky_x, smoky_y) = (2 * size, 1 * size)
+        (smoky_x, smoky_y) = (2 * size, 4 * size)
         (center_x, center_y) = (smoky_x + smoky_size / 2, smoky_y + smoky_size / 2)
 
         vertical = "top" if cursor_y < center_y else "bottom"
@@ -73,7 +73,7 @@ class MapScreen(Screen):
 
         sprite = self.sprites[f"smoky_{vertical}_{horizontal}"]
         
-        sprite.draw(self.screen, (2 * size, 1 * size), (smoky_size, smoky_size))
+        sprite.draw(self.screen, (smoky_x, smoky_y), (smoky_size, smoky_size))
 
     def draw_selector(self):
         size = self.size

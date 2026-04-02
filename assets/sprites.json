@@ -54,5 +54,17 @@
 		"cols": 1,
 		"rows": 1,
 		"sprites": [["water_standalone"]]
+	},
+
+	"misc/speech.png": {
+		"size": "16x16",
+		"cols": 3,
+		"rows": 4,
+		"sprites": [
+			["speech_top_left", "speech_top_center", "speech_top_right"],
+			["speech_center_left", "speech_center_center", "speech_center_right"],
+			["speech_bottom_left", "speech_bottom_center", "speech_bottom_right"],
+			["speech_bottom_connector", "speech_source", ""]
+		]
 	}
 }

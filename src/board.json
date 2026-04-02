@@ -32,17 +32,17 @@
     {
         "sprite": "forest",
         "cols": [2, 2],
-        "rows": [7, 7]
+        "rows": [10, 10]
     },
     {
         "sprite": "coin",
         "cols": [2, 2],
-        "rows": [9, 9]
+        "rows": [12, 12]
     },
     {
         "sprite": "water_standalone",
         "cols": [2, 2],
-        "rows": [11, 11]
+        "rows": [14, 14]
     },
     {
         "sprite": "field",
@@ -88,5 +88,60 @@
         "sprite": "flag_1_red",
         "cols": [6, 6],
         "rows": [24, 24]
+    },
+    {
+        "sprite": "speech_top_left",
+        "cols": [0, 0],
+        "rows": [0, 0]
+    },
+    {
+        "sprite": "speech_top_center",
+        "cols": [1, 5],
+        "rows": [0, 0]
+    },
+    {
+        "sprite": "speech_top_right",
+        "cols": [6, 6],
+        "rows": [0, 0]
+    },
+    {
+        "sprite": "speech_center_left",
+        "cols": [0, 0],
+        "rows": [1, 2]
+    },
+    {
+        "sprite": "speech_center_center",
+        "cols": [1, 5],
+        "rows": [1, 2]
+    },
+    {
+        "sprite": "speech_center_right",
+        "cols": [6, 6],
+        "rows": [1, 2]
+    },
+    {
+        "sprite": "speech_bottom_left",
+        "cols": [0, 0],
+        "rows": [3, 3]
+    },
+    {
+        "sprite": "speech_bottom_connector",
+        "cols": [1, 1],
+        "rows": [3, 3]
+    },
+    {
+        "sprite": "speech_bottom_center",
+        "cols": [2, 5],
+        "rows": [3, 3]
+    },
+    {
+        "sprite": "speech_bottom_right",
+        "cols": [6, 6],
+        "rows": [3, 3]
+    },
+    {
+        "sprite": "speech_source",
+        "cols": [1, 1],
+        "rows": [4, 4]
     }
 ]
