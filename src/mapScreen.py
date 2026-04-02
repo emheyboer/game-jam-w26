@@ -19,8 +19,11 @@ class MapScreen(Screen):
             for y in range(0, rows):
                 self.sprites['field_grassy'].draw(self.screen,
                                                 (x * size, y * size), (size, size))
-                self.sprites['forest'].draw(self.screen,
+                if x >= 8:
+                    self.sprites['forest'].draw(self.screen,
                                                 (x * size, y * size), (size, size))
+                    
+        self.sprites['smoky'].draw(self.screen, (2 * size, 1 * size), (4 * size, 4 * size))
     
     def on_event(self, event):
         """

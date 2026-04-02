@@ -1,5 +1,5 @@
 {
-    "assets/map tiles/tilemap.png": {
+    "map tiles/tilemap.png": {
         "size": "16x16",
         "cols": 18,
         "rows": 11,
@@ -16,5 +16,12 @@
 			["road_vertical_bottom", "road_bottom_left", "road_t_bottom", "road_bottom_right", "bridge_vertical", "truck_orange", "truck_covered_orange", "truck_treads_orange", "tank_orange", "tank_anti_air_orange", "plane_orange", "helicopter_orange", "helicopter_big_orange", "boat_orange", "boat_gun_orange", "submarine_orange", "person_gun_orange", "person_sword_orange"],
 			["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "?", "bullet", "gas", "lock", "flag", "heart", "cursor", "oil"]
 		]
-    }
+    },
+
+	"misc/smoky.png": {
+		"size": "16x16",
+		"cols": 1,
+		"rows": 1,
+		"sprites": [["smoky"]]
+	}
 }

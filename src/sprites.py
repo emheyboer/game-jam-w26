@@ -45,7 +45,7 @@ def load_sprites():
 
     for path in mapping:
         info = mapping[path]
-        sheet = SpriteSheet(path)
+        sheet = SpriteSheet('assets/' + path)
         [w, h] = [int(n) for n in info['size'].split('x')]
         for x in range(0, info['cols']):
             for y in range(0, info['rows']):
