@@ -8,6 +8,8 @@ def main():
     pygame.init()
     pygame.display.set_caption('disappointing smoky the bear')
 
+    pygame.mouse.set_visible(False)
+
     screen = pygame.display.set_mode()
     width, height = pygame.display.get_surface().get_size()
 
@@ -39,6 +41,9 @@ def main():
         screen.fill((0, 0, 0))
 
         current_screen.draw()
+
+        (c_x, c_y) = pygame.mouse.get_pos() 
+        sprites['cursor'].draw(screen, (c_x - 16, c_y - 8), (32, 32))
 
         pygame.display.update()
         pygame.display.flip()
