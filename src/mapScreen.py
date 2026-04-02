@@ -23,7 +23,29 @@ class MapScreen(Screen):
                     self.sprites['forest'].draw(self.screen,
                                                 (x * size, y * size), (size, size))
                     
-        self.sprites['smoky'].draw(self.screen, (2 * size, 1 * size), (4 * size, 4 * size))
+        self.draw_smoky()
+
+    def draw_smoky(self):
+        size = self.size
+        smoky_size = 4 * self.size
+        (cursor_x, cursor_y) = pygame.mouse.get_pos()
+
+        (smoky_x, smoky_y) = (2 * size, 1 * size)
+        (center_x, center_y) = (smoky_x + smoky_size / 2, smoky_y + smoky_size / 2)
+
+        vertical = "top" if cursor_y < center_y else "bottom"
+
+        if cursor_x >= (center_x + smoky_size / 4):
+            horizontal = "right"
+        elif cursor_x <= (center_x - smoky_size / 4):
+            horizontal = "left"
+        else:
+            horizontal = "center"
+
+        sprite = self.sprites[f"smoky_{vertical}_{horizontal}"]
+        print(f"smoky_{vertical}_{horizontal}", sprite)
+        
+        sprite.draw(self.screen, (2 * size, 1 * size), (smoky_size, smoky_size))
     
     def on_event(self, event):
         """

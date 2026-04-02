@@ -20,8 +20,11 @@
 
 	"misc/smoky.png": {
 		"size": "16x16",
-		"cols": 1,
-		"rows": 1,
-		"sprites": [["smoky"]]
+		"cols": 3,
+		"rows": 2,
+		"sprites": [
+			["smoky_top_left", "smoky_top_center", "smoky_top_right"],
+			["smoky_bottom_left", "smoky_bottom_center", "smoky_bottom_right"]
+		]
 	}
 }
