@@ -1,0 +1,20 @@
+{
+    "assets/map tiles/tilemap.png": {
+        "size": "16x16",
+        "cols": 18,
+        "rows": 11,
+        "sprites": [
+		    ["field", "field_grassy", "field_flowers", "river_top_left", "river_top_right", "mound", "car_1_gray", "pipe", "buildings_gray", "complex_gray", "building_wings_gray", "factory_gray", "construction_gray", "tower_gray", "rocket_gray", "airport_gray", "flag_1_gray", "flag_2_gray"],
+			["lake_top_left", "lake_top_center", "lake_top_right", "river_bottom_left", "river_bottom_right", "barricade_spiky", "car_2_gray", "barricade", "buildings_green", "complex_green", "building_wings_green", "factory_green", "construction_green", "tower_green", "rocket_green", "airport_green", "flag_1_green", "flag_2_green"],
+			["lake_left", "lake_center", "lake_right", "waterfall_top", "arrow_up", "arrow_left", "arrow_center_horizontal", "arrow_right", "buildings_blue", "complex_blue", "building_wings_blue", "factory_blue", "construction_blue", "tower_blue", "rocket_blue", "airport_blue", "flag_1_blue", "flag_2_blue"],
+			["lake_bottom_left", "lake_bottom_center", "lake_bottom_right", "waterfall_middle_1", "arrow_center_vertical", "arrow_top_left", "arrow_top_right", "selector", "buildings_red", "complex_red", "building_wings_red", "factory_red", "construction_red", "tower_red", "rocket_red", "airport_red", "flag_1_red", "flag_2_red"],
+			["water_landmass_top_right", "water_landmass_top", "water_landmass_top_left", "waterfall_bottom", "arrow_down", "arrow_bottom_left", "arrow_bottom_right", "hazard", "buildings_orange", "complex_orange", "building_wings_orange", "factory_orange", "construction_orange", "tower_orange", "rocket_orange", "airport_orange", "flag_1_orange", "flag_2_orange"],
+			["water_landmass_small_top_left", "water_landmass_small_top_right", "lake_landmass_bottom_right", "lake_landmass_bottom_left", "tree", "truck_gray", "truck_covered_gray", "truck_treads_gray", "tank_gray", "tank_anti_air_gray", "plane_gray", "helicopter_gray", "helicopter_big_gray", "boat_gray", "boat_gun_gray", "submarine_gray", "person_gun_gray", "person_sword_gray"],
+			["road_single", "road_horizontal_left", "road_horizontal_center", "road_horizontal_right", "forest", "truck_green", "truck_covered_green", "truck_treads_green", "tank_green", "tank_anti_air_green", "plane_green", "helicopter_green", "helicopter_big_green", "boat_green", "boat_gun_green", "submarine_green", "person_gun_green", "person_sword_green"],
+			["road_vertical_top", "road_top_left", "road_t_top", "road_top_right", "bridge", "truck_blue", "truck_covered_blue", "truck_treads_blue", "tank_blue", "tank_anti_air_blue", "plane_blue", "helicopter_blue", "helicopter_big_blue", "boat_blue", "boat_gun_blue", "submarine_blue", "person_gun_blue", "person_sword_blue"],
+			["road_vertical_center", "road_t_left", "road_four_way", "road_t_right", "bridge_below", "truck_red", "truck_covered_red", "truck_treads_red", "tank_red", "tank_anti_air_red", "plane_red", "helicopter_red", "helicopter_big_red", "boat_red", "boat_gun_red", "submarine_red", "person_gun_red", "person_sword_red"],
+			["road_vertical_bottom", "road_bottom_left", "road_t_bottom", "road_bottom_right", "bridge_vertical", "truck_orange", "truck_covered_orange", "truck_treads_orange", "tank_orange", "tank_anti_air_orange", "plane_orange", "helicopter_orange", "helicopter_big_orange", "boat_orange", "boat_gun_orange", "submarine_orange", "person_gun_orange", "person_sword_orange"],
+			["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "?", "bullet", "gas", "lock", "flag", "heart", "cursor", "oil"]
+		]
+    }
+}

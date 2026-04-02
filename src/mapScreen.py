@@ -17,9 +17,9 @@ class MapScreen(Screen):
         rows = self.height // size
         for x in range(0, columns):
             for y in range(0, rows):
-                self.sprites[f"map_01_00"].draw(self.screen,
+                self.sprites['field_grassy'].draw(self.screen,
                                                 (x * size, y * size), (size, size))
-                self.sprites[f"map_04_06"].draw(self.screen,
+                self.sprites['forest'].draw(self.screen,
                                                 (x * size, y * size), (size, size))
     
     def on_event(self, event):

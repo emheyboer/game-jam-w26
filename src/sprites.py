@@ -1,4 +1,5 @@
 import pygame
+import json
 
 class SpriteSheet:
     def __init__(self, path: str) -> None:
@@ -8,7 +9,6 @@ class SpriteSheet:
 class Sprite:
     def __init__(self, spriteSheet: SpriteSheet, pos: tuple[int, int], size: tuple[int, int],
                  textOffset: tuple[int, int] = (0, 0), fontSize: int = 30) -> None:
-        self.spriteSheet = spriteSheet
         self.x, self.y = pos
         self.width, self.height = size
         self.offsetX, self.offsetY = textOffset
@@ -16,7 +16,7 @@ class Sprite:
 
         self.sprite = pygame.Surface(size)
         self.sprite.set_colorkey((0,0,0))
-        self.sprite.blit(self.spriteSheet.surface, (0, 0), (self.x, self.y, self.width, self.height))
+        self.sprite.blit(spriteSheet.surface, (0, 0), (self.x, self.y, self.width, self.height))
 
     def draw(self, screen, pos: tuple[float, float], size = None, text = None, scaleText: bool = True):
         x, y = pos
@@ -39,10 +39,17 @@ class Sprite:
 def load_sprites():
     sprites = {}
 
-    map_sheet = SpriteSheet('assets/map tiles/tilemap.png')
-    for x in range(0, 18):
-        for y in range(0, 11):
-            sprite = Sprite(map_sheet, (16 * x, 16 * y), (16, 16))
-            sprites[f"map_{x:02d}_{y:02d}"] = sprite
+    mapping = None
+    with open('assets/sprites.json') as file:
+        mapping = json.load(file)
+
+    for path in mapping:
+        info = mapping[path]
+        sheet = SpriteSheet(path)
+        [w, h] = [int(n) for n in info['size'].split('x')]
+        for x in range(0, info['cols']):
+            for y in range(0, info['rows']):
+                sprite = Sprite(sheet, (w * x, h * y), (w, h))
+                sprites[info['sprites'][y][x]] = sprite
 
     return sprites
