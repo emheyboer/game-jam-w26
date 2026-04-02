@@ -1,4 +1,6 @@
 import pygame
+import json
+import random
 
 from screen import Screen
 from sprites import Sprite
@@ -12,23 +14,41 @@ class MapScreen(Screen):
         """
         Renders the screen
         """
+
+        self.draw_mock_ui()
+
+        self.draw_smoky()
+        self.draw_selector()
+    
+    def draw_mock_ui(self):
         size = self.size
         columns = self.width // size
         rows = self.height // size
+    
         for x in range(0, columns):
             for y in range(0, rows):
                 self.sprites['field_grassy'].draw(self.screen,
                                                 (x * size, y * size), (size, size))
-                
-                if x == 7:
-                    self.sprites['river_vertical_center'].draw(self.screen,
-                                                (x * size, y * size), (size, size))
-                elif x >= 8:
-                    self.sprites['forest'].draw(self.screen,
+
+        # yes, we are in fact loading json 60 times/s
+        # no, there's not a good reason for this
+        with open('src/board.json') as file:
+            board = json.load(file)
+        for region in board:
+            for x in range(region['cols'][0], region['cols'][1] + 1):
+                for y in range(region['rows'][0], region['rows'][1] + 1):
+                    self.sprites[region['sprite']].draw(self.screen,
                                                 (x * size, y * size), (size, size))
                     
-        self.draw_smoky()
-        self.draw_selector()
+        # don't hate me, i'll redraw these later so they're not so weird
+        self.sprites['1'].draw(self.screen,
+                                    (3.5 * size, 6.5 * size), (1.5 * size, 1.5 * size))
+        self.sprites['0'].draw(self.screen,
+                                    (4.5 * size, 6.5 * size), (1.5 * size, 1.5 * size))
+        self.sprites['2'].draw(self.screen,
+                                    (3.5 * size, 8.5 * size), (1.5 * size, 1.5 * size))
+        self.sprites['7'].draw(self.screen,
+                                    (4.5 * size, 8.5 * size), (1.5 * size, 1.5 * size))
 
     def draw_smoky(self):
         size = self.size

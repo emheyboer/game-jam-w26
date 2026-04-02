@@ -15,7 +15,14 @@
         [] Better Fighting things (truck,plane,??)
 
     [] UI Stuffs
-    [] 
+        [] finish mock ui
+    [] Sprites
+        [] a good 1x1 water tile for the ui (probably just mashing kenny's together)
+        [] maybe tree variants(?)
+        [] fire sprite that we can hopefully just stick on top of the trees & stuff
+        [] ui things i forgot
+        [] 0-9 (or just resizing the existing ones?)
+        [] smoky should probably be 64x64 but i'm scared
     [] 
     [] 
 

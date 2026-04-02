@@ -1,0 +1,87 @@
+[
+    {
+        "sprite": "river_vertical_center",
+        "cols": [7, 7],
+        "rows": [0, 25]
+    },
+    {
+        "sprite": "forest",
+        "cols": [8, 43],
+        "rows": [1, 24]
+    },
+    {
+        "sprite": "river_bottom_left",
+        "cols": [7, 7],
+        "rows": [25, 25]
+    },
+    {
+        "sprite": "river_horizontal_center",
+        "cols": [8, 44],
+        "rows": [25, 25]
+    },
+    {
+        "sprite": "mountain",
+        "cols": [8, 44],
+        "rows": [0, 0]
+    },
+    {
+        "sprite": "mountain",
+        "cols": [44, 44],
+        "rows": [1, 24]
+    },
+    {
+        "sprite": "forest",
+        "cols": [2, 2],
+        "rows": [7, 7]
+    },
+    {
+        "sprite": "coin",
+        "cols": [2, 2],
+        "rows": [9, 9]
+    },
+    {
+        "sprite": "field",
+        "cols": [30, 32],
+        "rows": [15, 17]
+    },
+    {
+        "sprite": "buildings_gray",
+        "cols": [30, 32],
+        "rows": [15, 17]
+    },
+    {
+        "sprite": "person_sword_red",
+        "cols": [0, 0],
+        "rows": [24, 24]
+    },
+    {
+        "sprite": "person_gun_red",
+        "cols": [1, 1],
+        "rows": [24, 24]
+    },
+    {
+        "sprite": "truck_covered_red",
+        "cols": [2, 2],
+        "rows": [24, 24]
+    },
+    {
+        "sprite": "helicopter_red",
+        "cols": [3, 3],
+        "rows": [24, 24]
+    },
+    {
+        "sprite": "plane_red",
+        "cols": [4, 4],
+        "rows": [24, 24]
+    },
+    {
+        "sprite": "tower_red",
+        "cols": [5, 5],
+        "rows": [24, 24]
+    },
+    {
+        "sprite": "flag_1_red",
+        "cols": [6, 6],
+        "rows": [24, 24]
+    }
+]
