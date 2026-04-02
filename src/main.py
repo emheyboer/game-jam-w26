@@ -6,6 +6,7 @@ from mapScreen import MapScreen
 
 def main():
     pygame.init()
+    # (｡•̀ᴗ-)✧ Super Dissapointing 
     pygame.display.set_caption('disappointing smoky the bear')
 
     pygame.mouse.set_visible(False)
@@ -34,7 +35,8 @@ def main():
                 
 
         keys = pygame.key.get_pressed()
-
+        # Me reading through the code and about to add a quit button
+        # then getting to here /(ᵒ̤̑ ₀̑ ᵒ̤̑/) wow!*✰
         if keys[pygame.K_q]:
             running = False
 
