@@ -45,6 +45,11 @@
         "rows": [14, 14]
     },
     {
+        "sprite": "wind_sock_center_right",
+        "cols": [2, 2],
+        "rows": [16, 16]
+    },
+    {
         "sprite": "field",
         "cols": [30, 32],
         "rows": [15, 17]

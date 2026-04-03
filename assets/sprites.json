@@ -66,5 +66,16 @@
 			["speech_bottom_left", "speech_bottom_center", "speech_bottom_right"],
 			["speech_bottom_connector", "speech_source", ""]
 		]
+	},
+
+	"misc/wind_sock.png": {
+		"size": "16x16",
+		"cols": 3,
+		"rows": 3,
+		"sprites": [
+			["wind_sock_top_left", "wind_sock_top_center", "wind_sock_top_right"],
+			["wind_sock_center_left", "", "wind_sock_center_right"],
+			["wind_sock_bottom_left", "wind_sock_bottom_center", "wind_sock_bottom_right"]
+		]
 	}
 }
