@@ -9,7 +9,8 @@ class MapScreen(Screen):
     def __init__(self, screen, width: int, height: int, sprites: dict[str, Sprite], player, level: int) -> None:
         super().__init__(screen, width, height, sprites, player, level)
         self.size = 32
-        self.speech_text_surface = None
+        self.speech_text = 'Only you can prevent wildfires'
+        self.speech_surface = None
 
     def draw(self) -> None:
         """
@@ -56,18 +57,20 @@ class MapScreen(Screen):
         self.sprites['9'].draw(self.screen,
                                     (4.5 * size, 13.5 * size), (1.5 * size, 1.5 * size))
 
+    def speak(self, text):
+        self.speech_text = text
+        self.speech_surface = None
+
     def draw_speech(self):
         size = self.size
         max_width = 6 * size
         max_height = 3 * size
 
-        text = 'Only you can prevent wildfires'
-
-        if self.speech_text_surface is None:
-            self.speech_text_surface = text_surface = self.layout_text(text,
+        if self.speech_surface is None:
+            self.speech_surface = self.layout_text(self.speech_text,
                 'comicsansms', 30, max_width, max_height)
 
-        self.screen.blit(self.speech_text_surface, (size / 2, size / 2))
+        self.screen.blit(self.speech_surface, (size / 2, size / 2))
 
     # the approach here is fairly simple:
     # 1. ignore existing line breaks and instead split on whitespace.
@@ -142,11 +145,11 @@ class MapScreen(Screen):
         Responds to an individual pygame event. On screen change, returns the new screen
         """
 
-        if event.type == pygame.KEYUP:
-            if event.unicode == '>':
-                self.size <<= 1
-            elif event.unicode == '<':
-                self.size >>= 1
+        if event.type == pygame.KEYDOWN:
+            if event.unicode == '\x08':
+                self.speak(self.speech_text[:-1])
+            elif event.unicode != '':
+                self.speak(self.speech_text + event.unicode)
 
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             (c_x, c_y) = pygame.mouse.get_pos()

@@ -37,7 +37,7 @@ def main():
         keys = pygame.key.get_pressed()
         # Me reading through the code and about to add a quit button
         # then getting to here /(ᵒ̤̑ ₀̑ ᵒ̤̑/) wow!*✰
-        if keys[pygame.K_q]:
+        if keys[pygame.K_ESCAPE]:
             running = False
 
         screen.fill((0, 0, 0))
