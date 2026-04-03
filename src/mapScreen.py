@@ -9,6 +9,7 @@ class MapScreen(Screen):
     def __init__(self, screen, width: int, height: int, sprites: dict[str, Sprite], player, level: int) -> None:
         super().__init__(screen, width, height, sprites, player, level)
         self.size = 32
+        self.speech_text_surface = None
 
     def draw(self) -> None:
         """
@@ -62,8 +63,11 @@ class MapScreen(Screen):
 
         text = 'Only you can prevent wildfires'
 
-        text_surface = self.layout_text(text, 'comicsansms', 30, max_width, max_height)
-        self.screen.blit(text_surface, (size / 2, size / 2))
+        if self.speech_text_surface is None:
+            self.speech_text_surface = text_surface = self.layout_text(text,
+                'comicsansms', 30, max_width, max_height)
+
+        self.screen.blit(self.speech_text_surface, (size / 2, size / 2))
 
     # the approach here is fairly simple:
     # 1. ignore existing line breaks and instead split on whitespace.
