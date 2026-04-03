@@ -17,6 +17,7 @@ class MapScreen(Screen):
 
         self.draw_mock_ui()
 
+        self.draw_speech()
         self.draw_smoky()
         self.draw_selector()
     
@@ -53,6 +54,53 @@ class MapScreen(Screen):
                                     (3.5 * size, 13.5 * size), (1.5 * size, 1.5 * size))
         self.sprites['9'].draw(self.screen,
                                     (4.5 * size, 13.5 * size), (1.5 * size, 1.5 * size))
+
+    def draw_speech(self):
+        size = self.size
+        max_width = 6 * size
+        max_height = 3 * size
+
+        text = 'Only you can prevent wildfires'
+
+        text_surface = self.layout_text(text, 'comicsansms', 30, max_width, max_height)
+        self.screen.blit(text_surface, (size / 2, size / 2))
+
+    # the approach here is fairly simple:
+    # 1. ignore existing line breaks and instead split on whitespace.
+    # 2. if that doesn't fit vertically, we'll shrink the text start over.
+    # 3. finally, center the text vertically and horizontally.
+    # i promise i've written better.
+    def layout_text(self, text, font_name, font_size, max_width, max_height):
+        font = pygame.font.SysFont(font_name, font_size)
+        line_height = font.get_linesize()
+        max_lines = max_height // line_height
+
+        text = text.replace('\n', '').strip()
+        words = text.split(' ')
+        lines = []
+        line = ''
+        for word in words:
+            (w, _) = font.size(line + ' ' + word)
+            if w > max_width:
+                lines.append(line)
+                line = word
+            else:
+                line += ' ' + word
+
+            if len(lines) >= max_lines:
+                return self.layout_text(text, font_name, font_size - 1, max_width, max_height)
+        lines.append(line)
+            
+        surface = pygame.Surface((max_width, max_height), pygame.SRCALPHA, 32)
+        surface.convert_alpha()
+        y = (max_height - len(lines) * line_height) // 2
+        for line in lines:
+            text_surface = font.render(line, True, (1, 1, 1))
+            (w, _) = font.size(line)
+            surface.blit(text_surface, ((max_width - w) // 2, y))
+            y += line_height
+        print(f"font size = {font_size}")
+        return surface
 
     def draw_smoky(self):
         size = self.size
