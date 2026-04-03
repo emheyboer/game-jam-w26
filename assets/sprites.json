@@ -77,5 +77,12 @@
 			["wind_sock_center_left", "", "wind_sock_center_right"],
 			["wind_sock_bottom_left", "wind_sock_bottom_center", "wind_sock_bottom_right"]
 		]
+	},
+
+	"misc/forest_burning.png": {
+		"size": "16x16",
+		"cols": 1,
+		"rows": 1,
+		"sprites": [["forest_burning"]]
 	}
 }

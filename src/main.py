@@ -11,7 +11,7 @@ def main():
 
     pygame.mouse.set_visible(False)
 
-    screen = pygame.display.set_mode()
+    screen = pygame.display.set_mode((45 * 32, 26 * 32))
     width, height = pygame.display.get_surface().get_size()
 
     clock = pygame.time.Clock()

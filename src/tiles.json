@@ -1,0 +1,22 @@
+{
+    "_": [
+        "if there's nothing special about a tile (i.e. all you care about is the sprite),",
+        "you don't have to worry about defining it in this file"
+    ],
+
+    "forest": {
+        "sprite": "forest",
+        "health": 1,
+        "flammable": true
+    },
+    "field": {
+        "sprite": "field_grassy",
+        "health": 1,
+        "flammable": true
+    },
+    "city": {
+        "sprite": "buildings_gray",
+        "health": 1,
+        "flammable": true
+    }
+}

@@ -1,152 +1,173 @@
 [
     {
-        "sprite": "river_vertical_center",
+        "name": "river",
         "cols": [7, 7],
-        "rows": [0, 25]
+        "rows": [0, 25],
+        "kind": "vertical_center"
     },
     {
-        "sprite": "forest",
+        "name": "forest",
         "cols": [8, 43],
         "rows": [1, 24]
     },
     {
-        "sprite": "river_bottom_left",
+        "name": "forest",
+        "cols": [22, 22],
+        "rows": [8, 8],
+        "burning": true
+    },
+    {
+        "name": "river",
         "cols": [7, 7],
-        "rows": [25, 25]
+        "rows": [25, 25],
+        "kind": "bottom_left"
     },
     {
-        "sprite": "river_horizontal_center",
+        "name": "river",
         "cols": [8, 44],
-        "rows": [25, 25]
+        "rows": [25, 25],
+        "kind": "horizontal_center"
     },
     {
-        "sprite": "mountain",
+        "name": "mountain",
         "cols": [8, 44],
         "rows": [0, 0]
     },
     {
-        "sprite": "mountain",
+        "name": "mountain",
         "cols": [44, 44],
         "rows": [1, 24]
     },
     {
-        "sprite": "forest",
+        "name": "forest",
         "cols": [2, 2],
         "rows": [10, 10]
     },
     {
-        "sprite": "coin",
+        "name": "coin",
         "cols": [2, 2],
         "rows": [12, 12]
     },
     {
-        "sprite": "water_standalone",
+        "name": "water_standalone",
         "cols": [2, 2],
         "rows": [14, 14]
     },
     {
-        "sprite": "wind_sock_center_right",
+        "name": "wind_sock",
         "cols": [2, 2],
-        "rows": [16, 16]
+        "rows": [16, 16],
+        "kind": "center_right"
     },
     {
-        "sprite": "field",
+        "name": "field",
         "cols": [30, 32],
         "rows": [15, 17]
     },
     {
-        "sprite": "buildings_gray",
+        "name": "city",
         "cols": [30, 32],
         "rows": [15, 17]
     },
     {
-        "sprite": "person_sword_red",
+        "name": "person_sword_red",
         "cols": [0, 0],
         "rows": [24, 24]
     },
     {
-        "sprite": "person_gun_red",
+        "name": "person_gun_red",
         "cols": [1, 1],
         "rows": [24, 24]
     },
     {
-        "sprite": "truck_covered_red",
+        "name": "truck_covered_red",
         "cols": [2, 2],
         "rows": [24, 24]
     },
     {
-        "sprite": "helicopter_red",
+        "name": "helicopter_red",
         "cols": [3, 3],
         "rows": [24, 24]
     },
     {
-        "sprite": "plane_red",
+        "name": "plane_red",
         "cols": [4, 4],
         "rows": [24, 24]
     },
     {
-        "sprite": "tower_red",
+        "name": "tower_red",
         "cols": [5, 5],
         "rows": [24, 24]
     },
     {
-        "sprite": "flag_1_red",
+        "name": "flag_1_red",
         "cols": [6, 6],
         "rows": [24, 24]
     },
     {
-        "sprite": "speech_top_left",
+        "name": "speech",
         "cols": [0, 0],
-        "rows": [0, 0]
+        "rows": [0, 0],
+        "kind": "top_left"
     },
     {
-        "sprite": "speech_top_center",
+        "name": "speech",
         "cols": [1, 5],
-        "rows": [0, 0]
+        "rows": [0, 0],
+        "kind": "top_center"
     },
     {
-        "sprite": "speech_top_right",
+        "name": "speech",
         "cols": [6, 6],
-        "rows": [0, 0]
+        "rows": [0, 0],
+        "kind": "top_right"
     },
     {
-        "sprite": "speech_center_left",
+        "name": "speech",
         "cols": [0, 0],
-        "rows": [1, 2]
+        "rows": [1, 2],
+        "kind": "center_left"
     },
     {
-        "sprite": "speech_center_center",
+        "name": "speech",
         "cols": [1, 5],
-        "rows": [1, 2]
+        "rows": [1, 2],
+        "kind": "center_center"
     },
     {
-        "sprite": "speech_center_right",
+        "name": "speech",
         "cols": [6, 6],
-        "rows": [1, 2]
+        "rows": [1, 2],
+        "kind": "center_right"
     },
     {
-        "sprite": "speech_bottom_left",
+        "name": "speech",
         "cols": [0, 0],
-        "rows": [3, 3]
+        "rows": [3, 3],
+        "kind": "bottom_left"
     },
     {
-        "sprite": "speech_bottom_connector",
+        "name": "speech",
         "cols": [1, 1],
-        "rows": [3, 3]
+        "rows": [3, 3],
+        "kind": "bottom_connector"
     },
     {
-        "sprite": "speech_bottom_center",
+        "name": "speech",
         "cols": [2, 5],
-        "rows": [3, 3]
+        "rows": [3, 3],
+        "kind": "bottom_center"
     },
     {
-        "sprite": "speech_bottom_right",
+        "name": "speech",
         "cols": [6, 6],
-        "rows": [3, 3]
+        "rows": [3, 3],
+        "kind": "bottom_right"
     },
     {
-        "sprite": "speech_source",
+        "name": "speech",
         "cols": [1, 1],
-        "rows": [4, 4]
+        "rows": [4, 4],
+        "kind": "source"
     }
 ]

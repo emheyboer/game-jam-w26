@@ -4,6 +4,7 @@ import random
 
 from screen import Screen
 from sprites import Sprite
+from board import Board
 
 class MapScreen(Screen):
     def __init__(self, screen, width: int, height: int, sprites: dict[str, Sprite], player, level: int) -> None:
@@ -11,52 +12,20 @@ class MapScreen(Screen):
         self.size = 32
         self.speech_text = 'Only you can prevent wildfires'
         self.speech_surface = None
+        self.board = Board(45, 26)
+        self.board.load_json('src/board.json')
 
     def draw(self) -> None:
         """
         Renders the screen
         """
 
-        self.draw_mock_ui()
+        self.board.draw(self.screen, self.sprites)
 
         self.draw_speech()
         self.draw_smoky()
         self.draw_selector()
     
-    def draw_mock_ui(self):
-        size = self.size
-        columns = self.width // size
-        rows = self.height // size
-    
-        for x in range(0, columns):
-            for y in range(0, rows):
-                self.sprites['field_grassy'].draw(self.screen,
-                                                (x * size, y * size), (size, size))
-
-        # yes, we are in fact loading json 60 times/s
-        # no, there's not a good reason for this
-        with open('src/board.json') as file:
-            board = json.load(file)
-        for region in board:
-            for x in range(region['cols'][0], region['cols'][1] + 1):
-                for y in range(region['rows'][0], region['rows'][1] + 1):
-                    self.sprites[region['sprite']].draw(self.screen,
-                                                (x * size, y * size), (size, size))
-                    
-        # don't hate me, i'll redraw these later so they're not so weird
-        self.sprites['1'].draw(self.screen,
-                                    (3.5 * size, 9.5 * size), (1.5 * size, 1.5 * size))
-        self.sprites['0'].draw(self.screen,
-                                    (4.5 * size, 9.5 * size), (1.5 * size, 1.5 * size))
-        self.sprites['2'].draw(self.screen,
-                                    (3.5 * size, 11.5 * size), (1.5 * size, 1.5 * size))
-        self.sprites['7'].draw(self.screen,
-                                    (4.5 * size, 11.5 * size), (1.5 * size, 1.5 * size))
-        self.sprites['0'].draw(self.screen,
-                                    (3.5 * size, 13.5 * size), (1.5 * size, 1.5 * size))
-        self.sprites['9'].draw(self.screen,
-                                    (4.5 * size, 13.5 * size), (1.5 * size, 1.5 * size))
-
     def speak(self, text):
         self.speech_text = text
         self.speech_surface = None
@@ -106,7 +75,6 @@ class MapScreen(Screen):
             (w, _) = font.size(line)
             surface.blit(text_surface, ((max_width - w) // 2, y))
             y += line_height
-        print(f"font size = {font_size}")
         return surface
 
     def draw_smoky(self):
@@ -154,6 +122,6 @@ class MapScreen(Screen):
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             (c_x, c_y) = pygame.mouse.get_pos()
             grid_pos = (c_x // self.size, c_y // self.size)
-            print(grid_pos)
+            print("clicked on tile", grid_pos)
 
         return self
