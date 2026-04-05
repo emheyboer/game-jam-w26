@@ -12,10 +12,17 @@ class Tile:
 
         self.flammable = 'flammable' in spec and spec['flammable']
         self.burning: bool = burning
-        self.health = spec['health'] if 'health' in spec else 1
+
+        self.health = spec.get('health') or 1
+
         self.sprite = spec['sprite'] if 'sprite' in spec else name
         if len(kind) > 0:
             self.sprite += '_' + kind
+        
+        self.buyable = 'buyable' in spec
+        if self.buyable:
+            self.price = spec['buyable'].get('price') or 0
+            self.buy_entity = spec['buyable']['entity']
 
     def draw(self, screen, sprites, x, y) -> None:
         size = self.size
@@ -25,3 +32,19 @@ class Tile:
         if (self.burning):
             sprite += '_burning'
         sprites[sprite].draw(screen, (x * size, y * size), (size, size))
+
+        if self.buyable:
+            sprites['buyable'].draw(screen, (x * size, y * size), (size, size))
+    
+    def click(self) -> str | None:
+        print(f"i'm a {self.sprite}")
+        if self.buyable:
+            return self.sprite
+        return None
+
+    def ignite(self):
+        if self.flammable:
+            self.burning = True
+
+    def extinguish(self):
+        self.burning = False

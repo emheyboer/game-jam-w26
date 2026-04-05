@@ -84,5 +84,12 @@
 		"cols": 1,
 		"rows": 1,
 		"sprites": [["forest_burning"]]
+	},
+
+	"misc/buyable.png": {
+		"size": "16x16",
+		"cols": 1,
+		"rows": 1,
+		"sprites": [["buyable"]]
 	}
 }

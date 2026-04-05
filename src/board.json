@@ -70,37 +70,37 @@
         "rows": [15, 17]
     },
     {
-        "name": "person_sword_red",
+        "name": "buy_firefighter_axe",
         "cols": [0, 0],
         "rows": [24, 24]
     },
     {
-        "name": "person_gun_red",
+        "name": "buy_firefighter_hose",
         "cols": [1, 1],
         "rows": [24, 24]
     },
     {
-        "name": "truck_covered_red",
+        "name": "buy_firetruck",
         "cols": [2, 2],
         "rows": [24, 24]
     },
     {
-        "name": "helicopter_red",
+        "name": "buy_helicopter",
         "cols": [3, 3],
         "rows": [24, 24]
     },
     {
-        "name": "plane_red",
+        "name": "buy_plane",
         "cols": [4, 4],
         "rows": [24, 24]
     },
     {
-        "name": "tower_red",
+        "name": "buy_tower",
         "cols": [5, 5],
         "rows": [24, 24]
     },
     {
-        "name": "flag_1_red",
+        "name": "buy_flag",
         "cols": [6, 6],
         "rows": [24, 24]
     },
