@@ -86,7 +86,7 @@ class Tile:
             return entity
 
         if self.buyable:
-            return Entity(self.sprite)
+            return Entity(self.buy_entity)
         return None
 
     def ignite(self):
@@ -100,6 +100,8 @@ class Tile:
         if self.use_wind_direction:
             self.direction = board.wind_direction
 
+        if self.entity is not None:
+            self.entity.tick(board, x, y)
 
         if not self.burning:
             return

@@ -58,7 +58,7 @@
         "sprite": "tower_red",
         "buyable": {
             "price": 1,
-            "entity": "firefighter_axe"
+            "entity": "tower"
         }
     },
     "buy_flag": {

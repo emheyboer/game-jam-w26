@@ -1,3 +1,28 @@
 {
-    
+    "firefighter_axe": {
+        "sprite": "person_sword_red",
+        "motile": true
+    },
+    "firefighter_hose": {
+        "sprite": "person_gun_red",
+        "motile": true
+    },
+    "firetruck": {
+        "sprite": "truck_covered_red",
+        "motile": true
+    },
+    "helicopter": {
+        "sprite": "helicopter_red",
+        "motile": true
+    },
+    "plane": {
+        "sprite": "plane_red",
+        "motile": true
+    },
+    "tower": {
+        "sprite": "tower_red"
+    },
+    "flag": {
+        "sprite": "flag_1_red"
+    }
 }
