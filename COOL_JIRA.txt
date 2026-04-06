@@ -3,11 +3,11 @@
             off anything
 
     [] Fire Mechanic
-        [] Fire Spread
-        [] Tile Destruction
+        [x] Fire Spread
+        [x] Tile Destruction
         [] ...
     [] Resources
-        [] figure out what resources we're gonna have
+        [x] figure out what resources we're gonna have
         [] keep track and integrate with other mechanics
     [] Game Buttons
     [] Purchasing Mechanic 
@@ -17,11 +17,11 @@
         [] Better Fighting things (truck,plane,??)
 
     [] UI Stuffs
-        [] finish mock ui
+        [x] finish mock ui
     [] Sprites
         [x] a good 1x1 water tile for the ui (probably just mashing kenny's together)
         [] maybe tree variants(?)
-        [] fire sprite that we can hopefully just stick on top of the trees & stuff
+        [x] fire sprite that we can hopefully just stick on top of the trees & stuff
         [] ui things i forgot
         [] 0-9 (or just resizing the existing ones?)
         [] smoky should probably be 64x64 but i'm scared
