@@ -26,6 +26,9 @@ class MapScreen(Screen):
         self.draw_speech()
         self.draw_smoky()
         self.draw_selector()
+
+    def tick(self) -> None:
+        self.board.tick()
     
     def speak(self, text):
         self.speech_text = text

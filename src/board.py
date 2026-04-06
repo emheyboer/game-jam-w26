@@ -1,4 +1,5 @@
 import json
+import random
 
 from tile import Tile
 
@@ -10,6 +11,7 @@ class Board:
         if tiles is None:
             tiles = [[Tile() for _ in range(0, height)] for _ in range(0, width)]
         self.tiles: list[list[Tile]] = tiles
+        self.wind_direction = (1, 0)
 
     def load_json(self, path):
         with open(path) as file:
@@ -21,8 +23,20 @@ class Board:
                     burning = 'burning' in region and region['burning']
                     self.tiles[x][y] = Tile(region['name'], kind, burning)
 
-    def draw(self, screen, sprites):
+    def draw(self, screen, sprites) -> None:
         for x in range(0, self.width):
             for y in range(0, self.height):
                 tile = self.tiles[x][y]
                 tile.draw(screen, sprites, x, y)
+
+    def tick(self) -> None:
+        if random.randint(1, 60 * 5) == 1:
+            dir = (random.randint(-1, 1), random.randint(-1, 1))
+            if dir == (0, 0):
+                dir = (1, 1)
+            self.wind_direction = dir
+
+        for x in range(0, self.width):
+            for y in range(0, self.height):
+                tile = self.tiles[x][y]
+                tile.tick(self, x, y)

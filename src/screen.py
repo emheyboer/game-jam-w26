@@ -20,3 +20,8 @@ class Screen:
         Responds to an individual pygame event. On screen change, returns the new screen
         """
         return self
+    
+    def tick(self):
+        """
+        Simulates a single tick
+        """

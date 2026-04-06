@@ -42,6 +42,8 @@ def main():
 
         screen.fill((0, 0, 0))
 
+        current_screen.tick()
+
         current_screen.draw()
 
         (c_x, c_y) = pygame.mouse.get_pos() 

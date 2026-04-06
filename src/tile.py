@@ -1,4 +1,5 @@
 import json
+import random
 
 from entity import Entity
 
@@ -12,8 +13,14 @@ class Tile:
     def __init__(self, name: str = '', kind: str = '', burning = False) -> None:
         spec: dict = self.definitions[name] if name in self.definitions else {}
 
-        self.flammable: bool = 'flammable' in spec and spec['flammable']
+        self.name = name
+        self.kind = kind
+
+        self.flammable: bool = spec.get('flammable') or False
         self.burning: bool = burning
+
+        self.use_wind_direction = spec.get('use_wind_direction') or False
+        self.direction = (1, 0)
 
         self.health: int = spec.get('health') or 1
 
@@ -31,11 +38,28 @@ class Tile:
     def draw(self, screen, sprites, x, y) -> None:
         size = self.size
         sprites['field_grassy'].draw(screen, (x * size, y * size), (size, size))
-
         sprite = self.sprite
-        if (self.burning):
-            sprite += '_burning'
+
+        if self.use_wind_direction:
+            (d_x, d_y) = self.direction
+            suffix = ['top', 'center', 'bottom'][d_y + 1]
+            suffix += '_'
+            suffix += ['left', 'center', 'right'][d_x + 1]
+            sprite += '_' + suffix
+
+        # if a sprite has a dedicated 'burning' variant, we'll use that
+        # otherwise, the generic fire sprite will suffice
+        needs_fire = False
+        if self.burning:
+            if (sprite + '_burning') in sprites:
+                sprite += '_burning'
+            else:
+                needs_fire = True
+
         sprites[sprite].draw(screen, (x * size, y * size), (size, size))
+
+        if needs_fire:
+            sprites['fire'].draw(screen, (x * size, y * size), (size, size))
 
         if self.buyable:
             sprites['buyable'].draw(screen, (x * size, y * size), (size, size))
@@ -65,3 +89,22 @@ class Tile:
 
     def extinguish(self):
         self.burning = False
+
+    def tick(self, board, x, y):
+        if self.use_wind_direction:
+            self.direction = board.wind_direction
+
+
+        if not self.burning:
+            return
+        
+        if random.randint(1, 100) != 1:
+            return
+        
+        (dx, dy) = board.wind_direction
+        (x, y) = (x + dx, y + dy)
+
+        if not (0 < x < board.width) or not (0 < y < board.height):
+            return
+        
+        board.tiles[x][y].ignite()

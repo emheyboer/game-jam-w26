@@ -56,8 +56,7 @@
     {
         "name": "wind_sock",
         "cols": [2, 2],
-        "rows": [16, 16],
-        "kind": "center_right"
+        "rows": [16, 16]
     },
     {
         "name": "field",
