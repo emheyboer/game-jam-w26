@@ -105,11 +105,12 @@ class MapScreen(Screen):
 
         grid_x = cursor_x // size
         grid_y = cursor_y // size
-
-        sprite = self.holding or 'selector'
         
-        self.sprites[sprite].draw(self.screen,
+        if self.holding is None:
+            self.sprites['selector'].draw(self.screen,
                                     (grid_x * size, grid_y * size), (size, size))
+        else:
+            self.holding.draw(self.screen, self.sprites, grid_x, grid_y)
     
     def on_event(self, event):
         """
@@ -125,7 +126,7 @@ class MapScreen(Screen):
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             (c_x, c_y) = pygame.mouse.get_pos()
             (x, y) = (c_x // self.size, c_y // self.size)
-            print("clicked on tile", x, y)
-            self.holding = self.board.tiles[x][y].click()
+            print("clicked on tile", (x, y))
+            self.holding = self.board.tiles[x][y].click(self.holding)
 
         return self
