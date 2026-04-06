@@ -79,17 +79,13 @@ class Tile:
     
     def click(self, holding: Entity | None) -> Entity | None:
         if holding is not None:
-            if self.entity is None:
-                self.entity = holding
-                self.entity.pos = self.pos
-                return None
-            return holding
+            holding.pos = self.pos
 
-        if self.entity is not None:
-            entity = self.entity
-            self.entity = None
-            return entity
-
+        if holding is not None or self.entity is not None:
+            tmp = self.entity
+            self.entity = holding
+            return tmp
+        
         if self.buyable:
             return Entity(self.pos, self.buy_entity)
         return None
