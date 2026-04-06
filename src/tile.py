@@ -56,6 +56,12 @@ class Tile:
             else:
                 needs_fire = True
 
+        if self.health <= 0:
+            if (sprite + '_destroyed') in sprites:
+                sprite += '_destroyed'
+            else:
+                sprite = 'destroyed'
+
         sprites[sprite].draw(screen, (x * size, y * size), (size, size))
 
         if needs_fire:
@@ -97,6 +103,11 @@ class Tile:
 
         if not self.burning:
             return
+        
+        self.health -= 1
+        if self.health <= 0:
+            self.extinguish()
+            self.flammable = False
         
         if random.randint(1, 100) != 1:
             return

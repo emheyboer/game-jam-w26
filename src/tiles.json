@@ -6,17 +6,17 @@
 
     "forest": {
         "sprite": "forest",
-        "health": 1,
+        "health": 1000,
         "flammable": true
     },
     "field": {
         "sprite": "field_grassy",
-        "health": 1,
+        "health": 1000,
         "flammable": true
     },
     "city": {
         "sprite": "buildings_gray",
-        "health": 1,
+        "health": 1000,
         "flammable": true
     },
     "buy_firefighter_axe": {

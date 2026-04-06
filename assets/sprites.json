@@ -79,7 +79,7 @@
 		]
 	},
 
-	"misc/forest_burning.png": {
+	"forest/forest_burning.png": {
 		"size": "16x16",
 		"cols": 1,
 		"rows": 1,
@@ -98,5 +98,19 @@
 		"cols": 1,
 		"rows": 1,
 		"sprites": [["fire"]]
+	},
+
+	"misc/destroyed.png": {
+		"size": "16x16",
+		"cols": 1,
+		"rows": 1,
+		"sprites": [["destroyed"]]
+	},
+
+	"forest/forest_destroyed.png": {
+		"size": "16x16",
+		"cols": 1,
+		"rows": 1,
+		"sprites": [["forest_destroyed"]]
 	}
 }
