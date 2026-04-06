@@ -113,7 +113,8 @@ class MapScreen(Screen):
             self.sprites['selector'].draw(self.screen,
                                     (grid_x * size, grid_y * size), (size, size))
         else:
-            self.holding.draw(self.screen, self.sprites, grid_x, grid_y)
+            self.holding.pos = (grid_x, grid_y)
+            self.holding.draw(self.screen, self.sprites)
     
     def on_event(self, event):
         """

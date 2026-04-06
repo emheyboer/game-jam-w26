@@ -10,9 +10,11 @@ def load_definitions(path):
 class Tile:
     size = 32
     definitions = load_definitions('src/tiles.json')
-    def __init__(self, name: str = '', kind: str = '', burning = False) -> None:
+    def __init__(self, pos: tuple[int, int], name: str = '', kind: str = '',
+                 burning = False) -> None:
         spec: dict = self.definitions[name] if name in self.definitions else {}
 
+        self.pos = pos
         self.name = name
         self.kind = kind
 
@@ -35,8 +37,10 @@ class Tile:
 
         self.entity: Entity | None = None
 
-    def draw(self, screen, sprites, x, y) -> None:
+    def draw(self, screen, sprites) -> None:
         size = self.size
+        (x, y) = self.pos
+
         sprites['field_grassy'].draw(screen, (x * size, y * size), (size, size))
         sprite = self.sprite
 
@@ -71,12 +75,13 @@ class Tile:
             sprites['buyable'].draw(screen, (x * size, y * size), (size, size))
 
         if self.entity is not None:
-            self.entity.draw(screen, sprites, x, y)
+            self.entity.draw(screen, sprites)
     
     def click(self, holding: Entity | None) -> Entity | None:
         if holding is not None:
             if self.entity is None:
                 self.entity = holding
+                self.entity.pos = self.pos
                 return None
             return holding
 
@@ -86,7 +91,7 @@ class Tile:
             return entity
 
         if self.buyable:
-            return Entity(self.buy_entity)
+            return Entity(self.pos, self.buy_entity)
         return None
 
     def ignite(self):
@@ -96,12 +101,14 @@ class Tile:
     def extinguish(self):
         self.burning = False
 
-    def tick(self, board, x, y):
+    def tick(self, board):
+        (x, y) = self.pos
+
         if self.use_wind_direction:
             self.direction = board.wind_direction
 
         if self.entity is not None:
-            self.entity.tick(board, x, y)
+            self.entity.tick(board)
 
         if not self.burning:
             return
@@ -117,7 +124,7 @@ class Tile:
         (dx, dy) = board.wind_direction
         (x, y) = (x + dx, y + dy)
 
-        if not (0 < x < board.width) or not (0 < y < board.height):
+        if not (0 <= x < board.width) or not (0 <= y < board.height):
             return
         
         board.tiles[x][y].ignite()
