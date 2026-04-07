@@ -112,5 +112,12 @@
 		"cols": 1,
 		"rows": 1,
 		"sprites": [["forest_destroyed"]]
+	},
+
+	"misc/magnifying_glass.png": {
+		"size": "16x16",
+		"cols": 1,
+		"rows": 1,
+		"sprites": [["magnifying_glass"]]
 	}
 }
