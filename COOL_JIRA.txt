@@ -12,8 +12,8 @@
     [] Game Buttons
     [] Purchasing Mechanic 
     [] Firefighter Things
-        [] The fighting 
-        [] Movement to fire
+        [x] The fighting 
+        [x] Movement to fire
         [] Better Fighting things (truck,plane,??)
 
     [] UI Stuffs
