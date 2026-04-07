@@ -54,7 +54,7 @@ class Entity:
             self.random_move(board)
 
         if self.state == State.MOVE_TO_FLAG and self.flag and self.motile:
-            distance = self.distance_from_flag()
+            distance = self.distance_from_pos(self.flag.pos)
             if distance > 2:
                 self.move_towards_pos(board, self.flag.pos)
             else:
@@ -65,11 +65,24 @@ class Entity:
             if tile is not None:
                 self.move_towards_pos(board, tile.pos)
 
-        tile = board.tiles[x][y]
-        if tile.burning:
-            tile.extinguish()
-            if self.follow_flag and self.flag:
+        if self.state == State.REFILL:
+            tile = board.tiles[x][y]
+            if tile.water_source and self.follow_flag and self.flag:
                 self.state = State.MOVE_TO_FLAG
+            elif tile.water_source:
+                self.state = State.EXTINGUISH
+        
+        if self.state == State.REFILL and self.motile:
+            tile = self.find(board, lambda tile : tile.water_source)
+            if tile is not None:
+                self.move_towards_pos(board, tile.pos)
+
+        # units don't have to be in the EXTINGUISH state
+        # to actually extinguish a fire (since it'd be weird otherwise)
+        tile = board.tiles[x][y]
+        if self.state != State.REFILL and tile.burning:
+            tile.extinguish()
+            self.state = State.REFILL
 
 
     def find(self, board, callback):
@@ -104,12 +117,10 @@ class Entity:
         if tile is not None:
             self.flag = tile.entity
 
-    def distance_from_flag(self):
-        if self.flag is None:
-            return -1
-        (flag_x, flag_y) = self.flag.pos
+    def distance_from_pos(self, pos):
+        (t_x, t_y) = pos
         (x, y) = self.pos
-        return math.sqrt((flag_x - x)**2 + (flag_y - y)**2)
+        return math.sqrt((t_x - x)**2 + (t_y - y)**2)
 
     def move_towards_pos(self, board, pos):
         (x, y) = self.pos

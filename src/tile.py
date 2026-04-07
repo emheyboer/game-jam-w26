@@ -24,6 +24,8 @@ class Tile:
         self.use_wind_direction = spec.get('use_wind_direction') or False
         self.direction = (1, 0)
 
+        self.water_source = spec.get('water_source') or False
+
         self.health: int = spec.get('health') or 1
 
         self.sprite: str = spec['sprite'] if 'sprite' in spec else name

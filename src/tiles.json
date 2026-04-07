@@ -71,5 +71,13 @@
     "wind_sock": {
         "sprite": "wind_sock",
         "use_wind_direction": true
+    },
+    "river": {
+        "sprite": "river",
+        "water_source": true
+    },
+    "water_standalone": {
+        "sprite": "water_standalone",
+        "water_source": true
     }
 }
