@@ -114,11 +114,13 @@ class Entity:
     def move_towards_pos(self, board, pos):
         (x, y) = self.pos
         (t_x, t_y) = pos
+
         # don't worry, i hate this too
         dx = (t_x - x) // max(abs(t_x- x), 1)
-        dx = min(max(dx + random.randint(-1, 1), -1), 1)
         dy = (t_y - y) // max(abs(t_y - y), 1)
-        dy = min(max(dy + random.randint(-1, 1), -1), 1)
+        if random.randint(1, 4) == 1:
+            dx = min(max(dx + random.randint(-1, 1), -1), 1)
+            dy = min(max(dy + random.randint(-1, 1), -1), 1)
 
         self.move(board, (dx, dy))
 
