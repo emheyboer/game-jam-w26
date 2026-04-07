@@ -25,6 +25,9 @@ class Entity:
         self.cooldown = spec.get('cooldown') or 30
         self.wait = self.cooldown
 
+        self.ranged = spec.get('ranged') or False
+        self.self_refill = spec.get('self_refill') or False
+
         self.follow_flag = spec.get('follow_flag') or False
         self.flag = None
         self.is_flag = spec.get('is_flag') or False
@@ -70,9 +73,10 @@ class Entity:
 
         if self.state == State.REFILL:
             tile = board.tiles[x][y]
-            if tile.water_source and self.follow_flag and self.flag:
+            can_fill = tile.water_source or self.self_refill
+            if can_fill and self.follow_flag and self.flag:
                 self.state = State.MOVE_TO_FLAG
-            elif tile.water_source:
+            elif can_fill:
                 self.state = State.EXTINGUISH
         
         if self.state == State.REFILL and self.motile:
@@ -83,6 +87,10 @@ class Entity:
         # units don't have to be in the EXTINGUISH state
         # to actually extinguish a fire (since it'd be weird otherwise)
         tile = board.tiles[x][y]
+        if self.ranged:
+            nearest = self.find(board, lambda t : t.burning)
+            if nearest is not None and self.distance_from_pos(nearest.pos) < 2:
+                tile = nearest
         if self.state != State.REFILL and tile.burning:
             tile.extinguish()
             self.state = State.REFILL

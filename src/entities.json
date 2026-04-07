@@ -17,14 +17,17 @@
     "helicopter": {
         "sprite": "helicopter_red",
         "motile": true,
-        "follow_flag": true
+        "follow_flag": true,
+        "ranged": true
     },
     "plane": {
         "sprite": "plane_red",
         "motile": true
     },
     "tower": {
-        "sprite": "tower_red"
+        "sprite": "tower_red",
+        "ranged": true,
+        "self_refill": true
     },
     "flag": {
         "sprite": "flag_1_red",
