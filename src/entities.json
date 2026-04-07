@@ -32,6 +32,7 @@
     },
     "flag": {
         "sprite": "flag_1_red",
-        "is_flag": true
+        "is_flag": true,
+        "self_refill": true
     }
 }
