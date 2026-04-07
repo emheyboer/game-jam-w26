@@ -56,6 +56,9 @@ class Entity:
             if self.flag is not None:
                 self.state = State.MOVE_TO_FLAG
 
+        if self.state == State.IDLE and not self.follow_flag:
+            self.state = State.EXTINGUISH
+
         if self.state == State.IDLE and self.motile:
             self.random_move(board)
 

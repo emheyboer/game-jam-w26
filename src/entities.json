@@ -22,7 +22,8 @@
     },
     "plane": {
         "sprite": "plane_red",
-        "motile": true
+        "motile": true,
+        "cooldown": 15
     },
     "tower": {
         "sprite": "tower_red",
