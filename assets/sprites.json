@@ -119,5 +119,12 @@
 		"cols": 1,
 		"rows": 1,
 		"sprites": [["magnifying_glass"]]
+	},
+
+	"misc/droplet.png": {
+		"size": "16x16",
+		"cols": 1,
+		"rows": 2,
+		"sprites": [["droplet_empty"], ["droplet_full"]]
 	}
 }

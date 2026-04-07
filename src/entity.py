@@ -37,6 +37,9 @@ class Entity:
         (x, y) = self.pos
         sprites[self.sprite].draw(screen, (x * size, y * size), (size, size))
 
+        if self.state == State.REFILL:
+            sprites[f"droplet_full"].draw(screen, (x * size, y * size), (size, size))
+
     def tick(self, board) -> None:
         if self.wait > 0:
             self.wait -= 1
