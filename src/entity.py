@@ -91,22 +91,22 @@ class Entity:
         # to actually extinguish a fire (since it'd be weird otherwise)
         tile = board.tiles[x][y]
         if self.ranged:
-            nearest = self.find(board, lambda t : t.burning)
-            if nearest is not None and self.distance_from_pos(nearest.pos) < 2:
+            nearest = self.find(board, lambda t : t.burning, 1)
+            if nearest is not None:
                 tile = nearest
         if self.state != State.REFILL and tile.burning:
             tile.extinguish()
             self.state = State.REFILL
 
 
-    def find(self, board, callback):
+    def find(self, board, callback, max_radius: int = 100):
         """
         Searches the grid in an expanding square centered on the entity.
         Returns the first tile for which `callback` returns a truthy value
         """
         (x, y) = self.pos
         radius = 1
-        while radius <= max(board.width, board.height):
+        while radius <= min(max(board.width, board.height), max_radius):
             tiles = []
             for t_x in range(x - radius, x + radius + 1):
                 tiles.append((t_x, y + radius))
@@ -115,6 +115,7 @@ class Entity:
                 tiles.append((x + radius, t_y))
                 tiles.append((x - radius, t_y))
 
+            random.shuffle(tiles)
             for (t_x, t_y) in tiles:
                 # potentially adding a bunch of junk coordinates just to
                 # remove them here is of course a questionable approach
@@ -143,9 +144,6 @@ class Entity:
         # don't worry, i hate this too
         dx = (t_x - x) // max(abs(t_x- x), 1)
         dy = (t_y - y) // max(abs(t_y - y), 1)
-        if random.randint(1, 4) == 1:
-            dx = min(max(dx + random.randint(-1, 1), -1), 1)
-            dy = min(max(dy + random.randint(-1, 1), -1), 1)
 
         self.move(board, (dx, dy))
 
@@ -165,7 +163,10 @@ class Entity:
         
         new_tile = board.tiles[x][y]
         if new_tile.entity is not None:
-            return
+            new_tile = new_tile.entity.find(board, lambda t: t.entity is None, 1)
+            if new_tile is None:
+                return
+            (x, y) = new_tile.pos
         
         tile.entity = None
         new_tile.entity = self
