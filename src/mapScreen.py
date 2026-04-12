@@ -126,11 +126,25 @@ class MapScreen(Screen):
                 self.speak(self.speech_text[:-1])
             elif event.unicode != '':
                 self.speak(self.speech_text + event.unicode)
-
-        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            (c_x, c_y) = pygame.mouse.get_pos()
-            (x, y) = (c_x // self.size, c_y // self.size)
-            print("clicked on tile", (x, y))
-            self.holding = self.board.tiles[x][y].click(self.holding)
+                
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            self.on_click(event.button, pygame.mouse.get_pos())
 
         return self
+    
+    def on_click(self, button, pos):
+        (c_x, c_y) = pos
+        (x, y) = (c_x // self.size, c_y // self.size)
+        tile = self.board.tiles[x][y]
+
+        if button == 1:
+            print("clicked on tile", (x, y))
+            self.holding = tile.click(self.holding)
+
+        elif button == 3:
+            if self.holding is not None:
+                self.holding.kill()
+                self.holding = None
+            elif tile.entity is not None:
+                tile.entity.kill()
+                tile.entity = None

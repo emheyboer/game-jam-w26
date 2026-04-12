@@ -32,6 +32,8 @@ class Entity:
         self.flag = None
         self.is_flag = spec.get('is_flag') or False
 
+        self.is_alive = True
+
         self.pos = pos
         self.state = State.IDLE
 
@@ -50,6 +52,11 @@ class Entity:
         self.wait = self.cooldown
 
         (x, y) = self.pos
+
+        # our flag has been removed, so let's find another
+        if self.flag is not None and not self.flag.is_alive:
+            self.flag = None
+            self.state = State.IDLE
 
         if self.follow_flag and self.flag is None:
             self.find_flag(board)
@@ -171,3 +178,6 @@ class Entity:
         tile.entity = None
         new_tile.entity = self
         self.pos = (x, y)
+
+    def kill(self) -> None:
+        self.is_alive = False
