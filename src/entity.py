@@ -86,6 +86,8 @@ class Entity:
             can_fill = tile.water_source or self.self_refill
             if can_fill and self.follow_flag and self.flag:
                 self.state = State.MOVE_TO_FLAG
+            elif can_fill and self.follow_flag:
+                self.state = State.IDLE
             elif can_fill:
                 self.state = State.EXTINGUISH
         
