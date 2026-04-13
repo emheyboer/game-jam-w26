@@ -1,3 +1,10 @@
+# How to Play
+- Start the game by running `python3 src/main.py`
+
+# Dependencies
+- python 3
+- pygame
+
 # Credits
 - Art by [kenny](https://kenney.nl/)
 
