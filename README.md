@@ -6,6 +6,8 @@
 - pygame
 
 # Credits
+- Art and design by Gwen Killinger
+- Art and code by Emily Heyboer
 - Art by [kenny](https://kenney.nl/)
 
 # Links
