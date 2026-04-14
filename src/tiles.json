@@ -6,7 +6,7 @@
 
     "forest": {
         "sprite": "forest",
-        "health": 1000,
+        "health": 5000,
         "flammable": true
     },
     "field": {

@@ -33,7 +33,7 @@ class MapScreen(Screen):
         self.draw_selector()
 
     def tick(self) -> None:
-        if random.randint(1, 60 * 10) == 1:
+        if random.randint(1, 60 * 20) == 1:
             self.speak(random.choice(self.cloudeyisms))
         self.board.tick()
     
