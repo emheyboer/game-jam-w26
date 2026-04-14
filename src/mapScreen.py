@@ -10,11 +10,16 @@ class MapScreen(Screen):
     def __init__(self, screen, width: int, height: int, sprites: dict[str, Sprite], player, level: int) -> None:
         super().__init__(screen, width, height, sprites, player, level)
         self.size = 32
-        self.speech_text = 'Only you can prevent wildfires'
+        self.cloudeyisms = self.load_cloudeyisms('src/cloudeyisms.json')
+        self.speech_text = self.cloudeyisms[0]
         self.speech_surface = None
         self.board = Board(45, 26)
         self.board.load_json('src/board.json')
         self.holding = None
+
+    def load_cloudeyisms(self, path):
+        with open(path) as file:
+            return json.load(file)
 
     def draw(self) -> None:
         """
@@ -28,6 +33,8 @@ class MapScreen(Screen):
         self.draw_selector()
 
     def tick(self) -> None:
+        if random.randint(1, 60 * 10) == 1:
+            self.speak(random.choice(self.cloudeyisms))
         self.board.tick()
     
     def speak(self, text):
