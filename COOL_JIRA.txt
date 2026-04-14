@@ -24,7 +24,7 @@
         [x] fire sprite that we can hopefully just stick on top of the trees & stuff
         [] ui things i forgot
         [] 0-9 (or just resizing the existing ones?)
-        [] smoky should probably be 64x64 but i'm scared
+        [x] smoky should probably be 64x64 but i'm scared
     [] 
     [] 
 

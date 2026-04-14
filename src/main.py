@@ -7,7 +7,7 @@ from mapScreen import MapScreen
 def main():
     pygame.init()
     # (｡•̀ᴗ-)✧ Super Dissapointing 
-    pygame.display.set_caption('disappointing smoky the bear')
+    pygame.display.set_caption('Only You')
 
     pygame.mouse.set_visible(False)
 

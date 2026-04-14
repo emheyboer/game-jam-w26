@@ -24,7 +24,7 @@ class MapScreen(Screen):
         self.board.draw(self.screen, self.sprites)
 
         self.draw_speech()
-        self.draw_smoky()
+        self.draw_cloudey()
         self.draw_selector()
 
     def tick(self) -> None:
@@ -81,26 +81,31 @@ class MapScreen(Screen):
             y += line_height
         return surface
 
-    def draw_smoky(self):
+    def draw_cloudey(self):
         size = self.size
-        smoky_size = 4 * self.size
+        cloudey_size = 4 * self.size
         (cursor_x, cursor_y) = pygame.mouse.get_pos()
 
-        (smoky_x, smoky_y) = (2 * size, 4 * size)
-        (center_x, center_y) = (smoky_x + smoky_size / 2, smoky_y + smoky_size / 2)
+        (cloudey_x, cloudey_y) = (2 * size, 4 * size)
+        (center_x, center_y) = (cloudey_x + cloudey_size / 2, cloudey_y + cloudey_size / 2)
 
-        vertical = "top" if cursor_y < center_y else "bottom"
+        if cursor_y < center_y:
+            vertical = "top"
+        elif cursor_y > (center_y + 10):
+            vertical = "bottom"
+        else:
+            vertical = "center"
 
-        if cursor_x >= (center_x + smoky_size / 4):
+        if cursor_x >= (center_x + cloudey_size / 4):
             horizontal = "right"
-        elif cursor_x <= (center_x - smoky_size / 4):
+        elif cursor_x <= (center_x - cloudey_size / 4):
             horizontal = "left"
         else:
             horizontal = "center"
 
-        sprite = self.sprites[f"smoky_{vertical}_{horizontal}"]
+        sprite = self.sprites[f"cloudey_{vertical}_{horizontal}"]
         
-        sprite.draw(self.screen, (smoky_x, smoky_y), (smoky_size, smoky_size))
+        sprite.draw(self.screen, (cloudey_x, cloudey_y), (cloudey_size, cloudey_size))
 
     def draw_selector(self):
         size = self.size

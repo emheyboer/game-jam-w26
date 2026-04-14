@@ -18,13 +18,14 @@
 		]
     },
 
-	"misc/smoky.png": {
-		"size": "16x16",
+	"misc/cloudey.png": {
+		"size": "64x64",
 		"cols": 3,
-		"rows": 2,
+		"rows": 3,
 		"sprites": [
-			["smoky_top_left", "smoky_top_center", "smoky_top_right"],
-			["smoky_bottom_left", "smoky_bottom_center", "smoky_bottom_right"]
+			["cloudey_top_left", "cloudey_top_center", "cloudey_top_right"],
+			["cloudey_center_left", "cloudey_center_center", "cloudey_center_right"],
+			["cloudey_bottom_left", "cloudey_bottom_center", "cloudey_bottom_right"]
 		]
 	},
 
