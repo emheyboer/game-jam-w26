@@ -30,7 +30,7 @@ class Board:
                 tile.draw(screen, sprites)
 
     def tick(self) -> None:
-        if random.randint(1, 60 * 5) == 1:
+        if random.randint(1, 60 * 10) == 1:
             dir = (random.randint(-1, 1), random.randint(-1, 1))
             if dir == (0, 0):
                 dir = (1, 1)

@@ -100,29 +100,30 @@ class Tile:
         self.burning = False
 
     def tick(self, board):
-        (x, y) = self.pos
-
         if self.use_wind_direction:
             self.direction = board.wind_direction
 
         if self.entity is not None:
             self.entity.tick(board)
 
-        if not self.burning:
-            return
-        
-        self.health -= 1
-        if self.health <= 0:
-            self.extinguish()
-            self.flammable = False
-        
-        if random.randint(1, 100) != 1:
-            return
-        
+        if self.burning:
+            self.health -= 1
+            if self.health <= 0:
+                self.extinguish()
+                self.flammable = False
+            if random.randint(1, 500) == 1:
+                self.fire_spread(board)
+
+
+    def fire_spread(self, board):
+        """
+        When trying to spread, we try to ignite the nearest tile in the same
+        direction the wind is blowing. If that's not an option, try adjacent ones.
+        """
+        (x, y) = self.pos
         (dx, dy) = board.wind_direction
         (x, y) = (x + dx, y + dy)
-
-        if not (0 <= x < board.width) or not (0 <= y < board.height):
-            return
         
-        board.tiles[x][y].ignite()
+        tile = board.find((x, y), lambda t : t.flammable and not t.burning, 1)
+        if tile is not None:
+            tile.ignite()
