@@ -1,107 +1,55 @@
 [
     {
-        "name": "river",
-        "cols": [7, 7],
-        "rows": [0, 25],
-        "kind": "vertical_center"
-    },
-    {
-        "name": "forest",
-        "cols": [8, 43],
-        "rows": [1, 24]
-    },
-    {
-        "name": "forest",
-        "cols": [22, 22],
-        "rows": [8, 8],
-        "burning": true
-    },
-    {
-        "name": "river",
-        "cols": [7, 7],
-        "rows": [25, 25],
-        "kind": "bottom_left"
-    },
-    {
-        "name": "river",
+        "name": "field",
         "cols": [8, 44],
-        "rows": [25, 25],
-        "kind": "horizontal_center"
+        "rows": [0, 25]
     },
-    {
-        "name": "mountain",
-        "cols": [8, 44],
-        "rows": [0, 0]
-    },
-    {
-        "name": "mountain",
-        "cols": [44, 44],
-        "rows": [1, 24]
-    },
-    {
-        "name": "forest",
-        "cols": [2, 2],
-        "rows": [10, 10]
-    },
-    {
-        "name": "coin",
-        "cols": [2, 2],
-        "rows": [12, 12]
-    },
-    {
-        "name": "water_standalone",
-        "cols": [2, 2],
-        "rows": [14, 14]
-    },
+    
     {
         "name": "wind_sock",
-        "cols": [2, 2],
-        "rows": [16, 16]
-    },
-    {
-        "name": "field",
-        "cols": [30, 32],
-        "rows": [15, 17]
-    },
-    {
-        "name": "city",
-        "cols": [30, 32],
-        "rows": [15, 17]
+        "cols": [31, 31],
+        "rows": [18, 18]
     },
     {
         "name": "buy_firefighter_axe",
-        "cols": [0, 0],
-        "rows": [24, 24]
+        "cols": [3, 3],
+        "rows": [14, 14]
     },
     {
         "name": "buy_firefighter_hose",
-        "cols": [1, 1],
-        "rows": [24, 24]
+        "cols": [3, 3],
+        "rows": [18, 18]
     },
     {
         "name": "buy_firetruck",
-        "cols": [2, 2],
-        "rows": [24, 24]
+        "cols": [1, 1],
+        "rows": [16, 16]
     },
     {
         "name": "buy_helicopter",
-        "cols": [3, 3],
-        "rows": [24, 24]
+        "cols": [5, 5],
+        "rows": [16, 16]
     },
     {
         "name": "buy_plane",
-        "cols": [4, 4],
-        "rows": [24, 24]
+        "cols": [5, 5],
+        "rows": [20, 20]
     },
     {
         "name": "buy_tower",
-        "cols": [5, 5],
-        "rows": [24, 24]
+        "cols": [1, 1],
+        "rows": [20, 20]
+    },
+    {
+        "name": "city",
+        "cols": [6, 6],
+        "rows": [20, 20],
+        "burning": true
     },
     {
         "name": "buy_flag",
-        "cols": [6, 6],
-        "rows": [24, 24]
+        "cols": [3, 3],
+        "rows": [16, 16]
     },
     {
         "name": "speech",
@@ -168,5 +116,436 @@
         "cols": [1, 1],
         "rows": [4, 4],
         "kind": "source"
+    },
+
+    {
+        "name": "mountain",
+        "cols": [7, 7],
+        "rows": [0, 25]
+    },
+    {
+        "name": "mountain",
+        "cols": [7, 20],
+        "rows": [0, 0]
+    },
+
+
+    {
+        "name": "forest",
+        "cols": [8, 14],
+        "rows": [17, 25]
+    },
+    {
+        "name": "forest",
+        "cols": [15, 26],
+        "rows": [18, 25]
+    },
+    {
+        "name": "forest",
+        "cols": [27, 27],
+        "rows": [19, 25]
+    },
+    {
+        "name": "forest",
+        "cols": [28, 28],
+        "rows": [20, 25]
+    },
+    {
+        "name": "forest",
+        "cols": [29, 29],
+        "rows": [21, 25]
+    },
+    {
+        "name": "forest",
+        "cols": [30, 30],
+        "rows": [22, 25]
+    },
+    {
+        "name": "forest",
+        "cols": [31, 31],
+        "rows": [23, 25]
+    },
+    {
+        "name": "forest",
+        "cols": [32, 32],
+        "rows": [24, 25]
+    },
+
+    {
+        "name": "forest",
+        "cols": [21, 44],
+        "rows": [0, 3]
+    },
+    {
+        "name": "forest",
+        "cols": [22, 44],
+        "rows": [4, 4]
+    },
+    {
+        "name": "forest",
+        "cols": [23, 44],
+        "rows": [5, 5]
+    },
+    {
+        "name": "forest",
+        "cols": [24, 44],
+        "rows": [6, 6]
+    },
+    {
+        "name": "forest",
+        "cols": [25, 44],
+        "rows": [7, 7]
+    },
+    {
+        "name": "forest",
+        "cols": [26, 44],
+        "rows": [8, 8]
+    },
+    {
+        "name": "forest",
+        "cols": [27, 44],
+        "rows": [9, 9]
+    },
+    {
+        "name": "forest",
+        "cols": [28, 44],
+        "rows": [10, 10]
+    },
+    {
+        "name": "forest",
+        "cols": [29, 44],
+        "rows": [11, 11]
+    },
+    {
+        "name": "forest",
+        "cols": [30, 44],
+        "rows": [12, 12]
+    },
+    {
+        "name": "forest",
+        "cols": [31, 44],
+        "rows": [13, 13]
+    },
+    {
+        "name": "forest",
+        "cols": [32, 44],
+        "rows": [14, 14]
+    },
+    {
+        "name": "forest",
+        "cols": [33, 44],
+        "rows": [15, 15]
+    },
+    {
+        "name": "forest",
+        "cols": [34, 44],
+        "rows": [16, 16]
+    },
+    {
+        "name": "forest",
+        "cols": [35, 44],
+        "rows": [17, 17]
+    },
+    {
+        "name": "forest",
+        "cols": [36, 44],
+        "rows": [18, 18]
+    },
+    {
+        "name": "forest",
+        "cols": [37, 44],
+        "rows": [19, 19]
+    },
+    {
+        "name": "forest",
+        "cols": [38, 44],
+        "rows": [20, 20]
+    },
+    {
+        "name": "forest",
+        "cols": [39, 44],
+        "rows": [21, 21]
+    },
+    {
+        "name": "forest",
+        "cols": [40, 44],
+        "rows": [22, 22]
+    },
+    {
+        "name": "forest",
+        "cols": [41, 44],
+        "rows": [23, 23]
+    },
+    {
+        "name": "forest",
+        "cols": [42, 44],
+        "rows": [24, 24]
+    },
+    {
+        "name": "forest",
+        "cols": [43, 44],
+        "rows": [25, 25]
+    },
+
+    {
+        "name": "forest",
+        "cols": [9, 9],
+        "rows": [2, 2]
+    },
+    {
+        "name": "forest",
+        "cols": [12, 12],
+        "rows": [2, 2]
+    },
+    {
+        "name": "forest",
+        "cols": [15, 15],
+        "rows": [3, 3]
+    },
+    {
+        "name": "forest",
+        "cols": [19, 19],
+        "rows": [6, 6]
+    },
+    {
+        "name": "forest",
+        "cols": [20, 20],
+        "rows": [7, 7]
+    },
+    {
+        "name": "forest",
+        "cols": [16, 16],
+        "rows": [10, 10]
+    },
+    {
+        "name": "forest",
+        "cols": [11, 11],
+        "rows": [10, 10]
+    },
+    {
+        "name": "forest",
+        "cols": [9, 9],
+        "rows": [11, 11]
+    },
+    {
+        "name": "forest",
+        "cols": [10, 10],
+        "rows": [5, 5]
+    },
+    {
+        "name": "forest",
+        "cols": [8, 8],
+        "rows": [7, 7]
+    },
+    {
+        "name": "forest",
+        "cols": [8, 8],
+        "rows": [14, 14]
+    },
+    {
+        "name": "forest",
+        "cols": [10, 10],
+        "rows": [15, 15]
+    },
+    {
+        "name": "forest",
+        "cols": [12, 12],
+        "rows": [13, 13]
+    },
+    {
+        "name": "forest",
+        "cols": [14, 14],
+        "rows": [15, 15]
+    },
+    {
+        "name": "forest",
+        "cols": [16, 16],
+        "rows": [14, 14]
+    },
+    {
+        "name": "forest",
+        "cols": [17, 17],
+        "rows": [16, 16]
+    },
+    {
+        "name": "forest",
+        "cols": [17, 18],
+        "rows": [1, 2]
+    },
+    {
+        "name": "forest",
+        "cols": [20, 21],
+        "rows": [12, 15]
+    },
+    {
+        "name": "forest",
+        "cols": [22, 22],
+        "rows": [14, 14]
+    },
+
+
+    {
+        "name": "city",
+        "cols": [17, 18],
+        "rows": [13, 14]
+    },
+    {
+        "name": "city",
+        "cols": [34, 35],
+        "rows": [21, 22]
+    },
+    {
+        "name": "city",
+        "cols": [27, 27],
+        "rows": [16, 16]
+    },
+    {
+        "name": "city",
+        "cols": [26, 26],
+        "rows": [15, 15]
+    },
+    {
+        "name": "city",
+        "cols": [28, 28],
+        "rows": [15, 15]
+    },
+
+    {
+        "name": "water_standalone",
+        "cols": [27, 27],
+        "rows": [15, 15]
+    },
+    {
+        "name": "lake",
+        "kind": "top_left",
+        "cols": [11, 11],
+        "rows": [4, 4]
+    },
+    {
+        "name": "lake",
+        "kind": "top_center",
+        "cols": [12, 16],
+        "rows": [4, 4]
+    },
+    {
+        "name": "lake",
+        "kind": "top_right",
+        "cols": [17, 17],
+        "rows": [4, 4]
+    },
+    {
+        "name": "lake",
+        "kind": "center_left",
+        "cols": [11, 11],
+        "rows": [5, 7]
+    },
+    {
+        "name": "lake",
+        "kind": "center_center",
+        "cols": [12, 16],
+        "rows": [5, 7]
+    },
+    {
+        "name": "lake",
+        "kind": "center_right",
+        "cols": [17, 17],
+        "rows": [5, 7]
+    },
+    {
+        "name": "lake",
+        "kind": "bottom_left",
+        "cols": [11, 11],
+        "rows": [8, 8]
+    },
+    {
+        "name": "lake",
+        "kind": "bottom_center",
+        "cols": [12, 16],
+        "rows": [8, 8]
+    },
+    {
+        "name": "lake",
+        "kind": "bottom_right",
+        "cols": [17, 17],
+        "rows": [8, 8]
+    },
+
+    {
+        "name": "river",
+        "kind": "vertical_top",
+        "cols": [14, 14],
+        "rows": [8, 8]
+    },
+    {
+        "name": "river",
+        "kind": "vertical_center",
+        "cols": [14, 14],
+        "rows": [9, 11]
+    },
+    {
+        "name": "river",
+        "kind": "bottom_left",
+        "cols": [14, 14],
+        "rows": [12, 12]
+    },
+    {
+        "name": "river",
+        "kind": "horizontal_center",
+        "cols": [15, 18],
+        "rows": [12, 12]
+    },
+    {
+        "name": "river",
+        "kind": "top_right",
+        "cols": [19, 19],
+        "rows": [12, 12]
+    },
+    {
+        "name": "river",
+        "kind": "vertical_center",
+        "cols": [19, 19],
+        "rows": [13, 25]
+    },
+
+    {
+        "name": "lake",
+        "kind": "top_left",
+        "cols": [35, 35],
+        "rows": [22, 22]
+    },
+    {
+        "name": "lake",
+        "kind": "top_right",
+        "cols": [36, 36],
+        "rows": [22, 22]
+    },
+    {
+        "name": "lake",
+        "kind": "bottom_left",
+        "cols": [35, 35],
+        "rows": [23, 23]
+    },
+    {
+        "name": "lake",
+        "kind": "bottom_right",
+        "cols": [36, 36],
+        "rows": [23, 23]
+    },
+
+
+
+
+
+    {
+        "name": "forest",
+        "cols": [10, 11],
+        "rows": [23, 24],
+        "burning": true
+    },
+    {
+        "name": "forest",
+        "cols": [40, 41],
+        "rows": [2, 3],
+        "burning": true
     }
 ]

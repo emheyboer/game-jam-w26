@@ -28,6 +28,10 @@ class Tile:
 
         self.health: int = spec.get('health') or 1
 
+
+        if name == 'field' and kind == '':
+            kind = 'flowers' if random.randint(1, 20) == 1 else 'grassy'
+
         self.sprite: str = spec['sprite'] if 'sprite' in spec else name
         if len(kind) > 0:
             self.sprite += '_' + kind

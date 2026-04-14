@@ -10,7 +10,7 @@
         "flammable": true
     },
     "field": {
-        "sprite": "field_grassy",
+        "sprite": "field",
         "health": 1000,
         "flammable": true
     },
@@ -78,6 +78,10 @@
     },
     "water_standalone": {
         "sprite": "water_standalone",
+        "water_source": true
+    },
+    "lake": {
+        "sprite": "lake",
         "water_source": true
     }
 }
