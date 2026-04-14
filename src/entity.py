@@ -77,7 +77,7 @@ class Entity:
                 self.state = State.EXTINGUISH
             
         if self.state == State.EXTINGUISH and self.motile:
-            tile = self.find(board, lambda tile : tile.burning)
+            tile = board.find(self.pos, lambda tile : tile.burning)
             if tile is not None:
                 self.move_towards_pos(board, tile.pos)
 
@@ -92,7 +92,7 @@ class Entity:
                 self.state = State.EXTINGUISH
         
         if self.state == State.REFILL and self.motile:
-            tile = self.find(board, lambda tile : tile.water_source)
+            tile = board.find(self.pos, lambda tile : tile.water_source)
             if tile is not None:
                 self.move_towards_pos(board, tile.pos)
 
@@ -100,43 +100,15 @@ class Entity:
         # to actually extinguish a fire (since it'd be weird otherwise)
         tile = board.tiles[x][y]
         if self.ranged:
-            nearest = self.find(board, lambda t : t.burning, 1)
+            nearest = board.find(self.pos, lambda t : t.burning, 1)
             if nearest is not None:
                 tile = nearest
         if self.state != State.REFILL and tile.burning:
             tile.extinguish()
             self.state = State.REFILL
 
-
-    def find(self, board, callback, max_radius: int = 100):
-        """
-        Searches the grid in an expanding square centered on the entity.
-        Returns the first tile for which `callback` returns a truthy value
-        """
-        (x, y) = self.pos
-        radius = 1
-        while radius <= min(max(board.width, board.height), max_radius):
-            tiles = []
-            for t_x in range(x - radius, x + radius + 1):
-                tiles.append((t_x, y + radius))
-                tiles.append((t_x, y - radius))
-            for t_y in range(y - radius + 1, y + radius):
-                tiles.append((x + radius, t_y))
-                tiles.append((x - radius, t_y))
-
-            random.shuffle(tiles)
-            for (t_x, t_y) in tiles:
-                # potentially adding a bunch of junk coordinates just to
-                # remove them here is of course a questionable approach
-                if not (0 <= t_x < board.width) or not (0 <= t_y < board.height):
-                    continue
-                tile = board.tiles[t_x][t_y]
-                if callback(tile):
-                    return tile
-            radius += 1
-
     def find_flag(self, board):
-        tile = self.find(board,
+        tile = board.find(self.pos,
                          lambda tile : tile.entity and tile.entity.is_flag)
         if tile is not None:
             self.flag = tile.entity
@@ -172,7 +144,7 @@ class Entity:
         
         new_tile = board.tiles[x][y]
         if new_tile.entity is not None:
-            new_tile = new_tile.entity.find(board, lambda t: t.entity is None, 1)
+            new_tile = board.find(new_tile.entity.pos, lambda t: t.entity is None, 1)
             if new_tile is None:
                 return
             (x, y) = new_tile.pos

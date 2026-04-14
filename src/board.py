@@ -40,3 +40,30 @@ class Board:
             for y in range(0, self.height):
                 tile = self.tiles[x][y]
                 tile.tick(self)
+
+    def find(self, pos, callback, max_radius: int = 100):
+        """
+        Searches the grid in an expanding square centered on the entity.
+        Returns the first tile for which `callback` returns a truthy value
+        """
+        (x, y) = pos
+        radius = 0
+        while radius <= min(max(self.width, self.height), max_radius):
+            tiles = []
+            for t_x in range(x - radius, x + radius + 1):
+                tiles.append((t_x, y + radius))
+                tiles.append((t_x, y - radius))
+            for t_y in range(y - radius + 1, y + radius):
+                tiles.append((x + radius, t_y))
+                tiles.append((x - radius, t_y))
+
+            random.shuffle(tiles)
+            for (t_x, t_y) in tiles:
+                # potentially adding a bunch of junk coordinates just to
+                # remove them here is of course a questionable approach
+                if not (0 <= t_x < self.width) or not (0 <= t_y < self.height):
+                    continue
+                tile = self.tiles[t_x][t_y]
+                if callback(tile):
+                    return tile
+            radius += 1
