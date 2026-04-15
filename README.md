@@ -1,3 +1,5 @@
+![a screenshot of the game in progress](assets/readme/cover.jpg)
+
 # How to Play
 - Start the game by running `python3 src/main.py`
 
