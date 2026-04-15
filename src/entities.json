@@ -1,36 +1,46 @@
 {
     "firefighter_axe": {
+        "description": "Normal, base unit",
         "sprite": "person_sword_red",
         "motile": true,
         "follow_flag": true
     },
     "firefighter_hose": {
+        "description": "Slightly ranged; can extinguish any adjacent tile",
         "sprite": "person_gun_red",
-        "motile": true,
-        "follow_flag": true
-    },
-    "firetruck": {
-        "sprite": "truck_covered_red",
-        "motile": true,
-        "follow_flag": true
-    },
-    "helicopter": {
-        "sprite": "helicopter_red",
         "motile": true,
         "follow_flag": true,
         "ranged": true
     },
+    "firetruck": {
+        "description": "Slower, but can put out more fires before refilling",
+        "sprite": "truck_covered_red",
+        "motile": true,
+        "follow_flag": true,
+        "large_reservoir": true,
+        "cooldown": 40
+    },
+    "helicopter": {
+        "description": "Extinguishes a tile and 4 of its neighbors",
+        "sprite": "helicopter_red",
+        "motile": true,
+        "follow_flag": true,
+        "splash": true
+    },
     "plane": {
+        "description": "Faster and acts independently",
         "sprite": "plane_red",
         "motile": true,
-        "cooldown": 25
+        "cooldown": 20
     },
     "tower": {
+        "description": "Stationary, ranged defensive structure",
         "sprite": "tower_red",
         "ranged": true,
         "self_refill": true
     },
     "flag": {
+        "description": "Coordinates units; most units will gather here before seeking out a fire",
         "sprite": "flag_1_red",
         "is_flag": true,
         "self_refill": true

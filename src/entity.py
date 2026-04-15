@@ -26,7 +26,9 @@ class Entity:
         self.wait = self.cooldown
 
         self.ranged = spec.get('ranged') or False
+        self.splash = spec.get('splash') or False
         self.self_refill = spec.get('self_refill') or False
+        self.large_reservoir = spec.get('large_reservoir') or False
 
         self.follow_flag = spec.get('follow_flag') or False
         self.flag = None
@@ -98,14 +100,27 @@ class Entity:
 
         # units don't have to be in the EXTINGUISH state
         # to actually extinguish a fire (since it'd be weird otherwise)
-        tile = board.tiles[x][y]
-        if self.ranged:
-            nearest = board.find(self.pos, lambda t : t.burning, 1)
-            if nearest is not None:
-                tile = nearest
-        if self.state != State.REFILL and tile.burning:
+        tile = board.find(self.pos, lambda t : t.burning, 1 if self.ranged else 0)
+        if self.state != State.REFILL and tile is not None and tile.burning:
             tile.extinguish()
-            self.state = State.REFILL
+            if self.splash:
+                self.splash_extinguish(board, tile.pos)
+            if not self.large_reservoir or random.randint(1, 4) == 1:
+                self.state = State.REFILL
+
+    def splash_extinguish(self, board, pos):
+        (x, y) = pos
+        targets = [
+            (1, 0),
+            (-1, 0),
+            (0, 1),
+            (0, -1)
+        ]
+        for (dx, dy) in targets:
+            (t_x, t_y) = (x + dx, y + dy)
+            if not (0 <= t_x < board.width) or not (0 <= t_y < board.height):
+                continue
+            board.tiles[t_x][t_y].extinguish()
 
     def find_flag(self, board):
         tile = board.find(self.pos,

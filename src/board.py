@@ -43,7 +43,7 @@ class Board:
 
     def find(self, pos, callback, max_radius: int = 100):
         """
-        Searches the grid in an expanding square centered on the entity.
+        Searches the grid in an expanding square centered on `pos`.
         Returns the first tile for which `callback` returns a truthy value
         """
         (x, y) = pos
